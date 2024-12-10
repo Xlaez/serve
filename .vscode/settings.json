@@ -1,0 +1,6 @@
+{
+  "elixirLS.dialyzerEnabled": true,
+  "elixirLS.fetchDeps": true,
+  "elixirLS.mixEnv": "dev",
+  "editor.formatOnSave": true
+}
