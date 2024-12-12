@@ -1,11 +1,11 @@
-defmodule BlogApiWeb.Router do
-  use BlogApiWeb, :router
+defmodule ServeApiWeb.Router do
+  use ServeApiWeb, :router
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/api", BlogApiWeb do
+  scope "/api", ServeApiWeb do
     pipe_through :api
   end
 
@@ -21,7 +21,7 @@ defmodule BlogApiWeb.Router do
     scope "/dev" do
       pipe_through [:fetch_session, :protect_from_forgery]
 
-      live_dashboard "/dashboard", metrics: BlogApiWeb.Telemetry
+      live_dashboard "/dashboard", metrics: ServeApiWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end

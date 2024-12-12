@@ -1,4 +1,4 @@
-defmodule BlogApi.Notification.Notification do
+defmodule ServeApi.Notification.Notification do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -14,7 +14,7 @@ defmodule BlogApi.Notification.Notification do
     field :is_read, :boolean, default: false
     field :body, :string
 
-    belongs_to :account, BlogApi.Account.Account
+    belongs_to :account, ServeApi.Account.Account
 
     timestamps(type: :utc_datetime)
   end

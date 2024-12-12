@@ -1,4 +1,4 @@
-defmodule BlogApiWeb.Endpoint do
+defmodule ServeApiWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :blog_api
 
   # The session will be stored in the cookie and signed,
@@ -6,7 +6,7 @@ defmodule BlogApiWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_blog_api_key",
+    key: "_serve_api_key",
     signing_salt: "VpVdAvgO",
     same_site: "Lax"
   ]
@@ -23,7 +23,7 @@ defmodule BlogApiWeb.Endpoint do
     at: "/",
     from: :blog_api,
     gzip: false,
-    only: BlogApiWeb.static_paths()
+    only: ServeApiWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -47,5 +47,5 @@ defmodule BlogApiWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug BlogApiWeb.Router
+  plug ServeApiWeb.Router
 end

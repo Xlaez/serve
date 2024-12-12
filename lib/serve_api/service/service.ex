@@ -1,4 +1,4 @@
-defmodule BlogApi.Service.Service do
+defmodule ServeApi.Service.Service do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -28,7 +28,7 @@ defmodule BlogApi.Service.Service do
       field :street, :string
     end
 
-    belongs_to :account, BlogApi.Account.Account
+    belongs_to :account, ServeApi.Account.Account
 
     timestamps(type: :utc_datetime)
   end

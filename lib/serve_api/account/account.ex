@@ -1,4 +1,4 @@
-defmodule BlogApi.Account.Account do
+defmodule ServeApi.Account.Account do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -21,7 +21,7 @@ defmodule BlogApi.Account.Account do
     field :device_tokens, {:array, :string}, default: []
     field :send_push_notifications, :boolean, default: false
 
-    has_one :service, BlogApi.Service.Service
+    has_one :service, ServeApi.Service.Service
 
     timestamps(type: :utc_datetime)
   end

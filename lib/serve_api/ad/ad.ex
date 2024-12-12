@@ -1,4 +1,4 @@
-defmodule BlogApi.Ad.Ad do
+defmodule ServeApi.Ad.Ad do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -25,7 +25,7 @@ defmodule BlogApi.Ad.Ad do
       field :country, :string
     end
 
-    belongs_to :service, BlogApi.Service.Service
+    belongs_to :service, ServeApi.Service.Service
   end
 
   def changeset(ad, attrs) do

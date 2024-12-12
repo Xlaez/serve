@@ -1,7 +1,7 @@
 import Config
 
 # Configures Swoosh API Client
-config :swoosh, api_client: Swoosh.ApiClient.Finch, finch_name: BlogApi.Finch
+config :swoosh, api_client: Swoosh.ApiClient.Finch, finch_name: ServeApi.Finch
 
 # Disable Swoosh Local Memory Storage
 config :swoosh, local: false
@@ -11,3 +11,7 @@ config :logger, level: :info
 
 # Runtime production configuration, including reading
 # of environment variables, is done on config/runtime.exs.
+
+if File.exists?(".env") do
+  Dotenv.load()
+end
