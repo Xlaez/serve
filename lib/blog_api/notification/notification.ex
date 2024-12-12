@@ -1,6 +1,6 @@
 defmodule BlogApi.Notification.Notification do
   use Ecto.Schema
-  import Ecto.Schema
+  import Ecto.Changeset
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
@@ -24,11 +24,12 @@ defmodule BlogApi.Notification.Notification do
     |> cast(attrs, [
       :title,
       :description,
+      :action,
       :action_id,
       :type,
       :is_read,
       :body
     ])
-    |> validate_required([:title, :description, :action, :type, :body])
+    |> validate_required([:title, :body, :type, :description])
   end
 end
