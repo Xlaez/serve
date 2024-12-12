@@ -28,6 +28,8 @@ defmodule BlogApi.Service.Service do
       field :street, :string
     end
 
+    belongs_to :account, BlogApi.Account.Account
+
     timestamps(type: :utc_datetime)
   end
 
