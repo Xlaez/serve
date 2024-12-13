@@ -1,5 +1,5 @@
 defmodule ServeApiWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :blog_api
+  use Phoenix.Endpoint, otp_app: :serve_api
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
@@ -21,7 +21,7 @@ defmodule ServeApiWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :blog_api,
+    from: :serve_api,
     gzip: false,
     only: ServeApiWeb.static_paths()
 
@@ -29,7 +29,7 @@ defmodule ServeApiWeb.Endpoint do
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :blog_api
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :serve_api
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,

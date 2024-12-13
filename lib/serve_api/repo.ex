@@ -1,5 +1,5 @@
 defmodule ServeApi.Repo do
   use Ecto.Repo,
-    otp_app: :blog_api,
+    otp_app: :serve_api,
     adapter: Ecto.Adapters.Postgres
 end

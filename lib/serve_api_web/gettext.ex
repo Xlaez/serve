@@ -20,5 +20,5 @@ defmodule ServeApiWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :serve_api
+  use Gettext.Backend, otp_app: :serve_api
 end

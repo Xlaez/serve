@@ -10,7 +10,7 @@ defmodule ServeApi.Application do
     children = [
       ServeApiWeb.Telemetry,
       ServeApi.Repo,
-      {DNSCluster, query: Application.get_env(:blog_api, :dns_cluster_query) || :ignore},
+      {DNSCluster, query: Application.get_env(:serve_api, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: ServeApi.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: ServeApi.Finch},

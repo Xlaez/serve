@@ -1,4 +1,4 @@
-defmodule BlogApi.MixProject do
+defmodule ServeApi.MixProject do
   use Mix.Project
 
   def project do
@@ -18,7 +18,7 @@ defmodule BlogApi.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {BlogApi.Application, []},
+      mod: {ServeApi.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -48,7 +48,7 @@ defmodule BlogApi.MixProject do
       {:guardian, "~> 2.3"},
       {:guardian_db, "~> 2.0"},
       {:bcrypt_elixir, "~> 3.0"},
-      {:dotenv, "~> 3.1.0"}
+      {:dotenv, "~> 3.1.0", only: [:dev, :test, :prod]}
     ]
   end
 

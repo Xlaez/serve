@@ -1,3 +1,3 @@
 defmodule ServeApi.Mailer do
-  use Swoosh.Mailer, otp_app: :blog_api
+  use Swoosh.Mailer, otp_app: :serve_api
 end

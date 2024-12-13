@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :serve_api, ServeApi.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "password123",
   hostname: "localhost",
   database: "serve_api_dev",
   stacktrace: true,
@@ -65,6 +65,10 @@ config :phoenix, :plug_init_mode, :runtime
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
 
-if File.exists?(".env") do
-  Dotenv.load()
-end
+# if File.exists?(".env") do
+#   try do
+#     Dotenv.load()
+#   rescue
+#     _ -> IO.puts("Could not load .env file")
+#   end
+# end

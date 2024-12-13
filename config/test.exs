@@ -7,7 +7,7 @@ import Config
 # Run `mix help test` for more information.
 config :serve_api, ServeApi.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "password123",
   hostname: "localhost",
   database: "serve_api_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
@@ -31,7 +31,3 @@ config :logger, level: :warning
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
-
-if File.exists?(".env") do
-  Dotenv.load()
-end

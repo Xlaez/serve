@@ -39,7 +39,7 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :blog_mailer, ServeApi.Mailer,
+config :serve_api, ServeApi.Mailer,
   adapter: Swoosh.Adapters.Mailtrap,
   api_key: System.get_env("MAILTRAP_API_KEY")
 
