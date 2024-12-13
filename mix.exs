@@ -48,7 +48,8 @@ defmodule ServeApi.MixProject do
       {:guardian, "~> 2.3"},
       {:guardian_db, "~> 2.0"},
       {:bcrypt_elixir, "~> 3.0"},
-      {:dotenv, "~> 3.1.0", only: [:dev, :test, :prod]}
+      {:dotenv, "~> 3.1.0", only: [:dev, :test, :prod]},
+      {:valdi, "~> 0.5.0"}
     ]
   end
 

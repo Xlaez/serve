@@ -24,7 +24,13 @@ config :serve_api, ServeApiWeb.Endpoint,
   code_reloader: true,
   debug_errors: true,
   secret_key_base: "KGWAcKhI3O/rAWAUI9x+NW0BzQnaJvDE3IvunqMv400bMtJxr4gB6YwJwqzwk/x6",
-  watchers: []
+  watchers: [],
+  live_reload: [
+    patterns: [
+      ~r"lib/serve_api_web/(live|views)/.*(ex)$",
+      ~r"lib/serve_api_web/templates/.*(eex)$"
+    ]
+  ]
 
 # ## SSL Support
 #

@@ -1,4 +1,4 @@
-defmodule ServeApi.Auth.AuthorizePlug do
+defmodule ServeApiWeb.Auth.AuthorizePlug do
   alias ServeApiWeb.Auth.ErrorResponse
 
   def is_authorized(%{params: %{"account" => params}} = conn, _opts) do

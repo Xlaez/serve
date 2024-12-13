@@ -9,3 +9,7 @@ end
 defmodule ServeApiWeb.Auth.ErrorResponse.NotFound do
   defexception message: "Resource Not Found", plug_status: 404
 end
+
+defmodule ServeApiWeb.Auth.ErrorResponse.NotAcceptable do
+  defexception message: "Request Not Accepted", plug_status: 422
+end

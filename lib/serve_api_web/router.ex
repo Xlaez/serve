@@ -1,12 +1,39 @@
 defmodule ServeApiWeb.Router do
   use ServeApiWeb, :router
+  use Plug.ErrorHandler
+
+  defp handle_errors(conn, %{reason: %Phoenix.Router.NoRouteError{message: message}}) do
+    conn |> json(%{errors: message}) |> halt()
+  end
+
+  defp handle_errors(conn, %{reason: %{message: message}}) do
+    conn |> json(%{errors: message}) |> halt()
+  end
+
+  defp handle_errors(conn, %{reason: reason}) do
+    IO.inspect(reason, label: "Unhandled error reason")
+    conn |> json(%{errors: "Internal Server Error"}) |> halt()
+  end
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
+  end
+
+  pipeline :auth do
+    plug ServeApiWeb.Auth.Pipeline
+    plug ServeApiWeb.Auth.SetAccount
   end
 
   scope "/api", ServeApiWeb do
     pipe_through :api
+    get "/", DefaultController, :index
+    get "/health_checker", DefaultController, :health_checker
+
+    post "/auth/register", AccountController, :register
+  end
+
+  scope "/api", ServeApiWeb do
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
