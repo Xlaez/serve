@@ -31,3 +31,11 @@ config :logger, level: :warning
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+if File.exists?(".env") do
+  try do
+    Dotenv.load()
+  rescue
+    _ -> IO.puts("Could not load .env file")
+  end
+end

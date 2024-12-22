@@ -14,6 +14,7 @@ defmodule ServeApi.Account.Account do
     field :country, :string
     field :city, :string
     field :phone, :string
+    field :gender, :string
     # worker | customer
     field :type, :string
     # google, password

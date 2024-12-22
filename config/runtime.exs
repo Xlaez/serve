@@ -65,6 +65,12 @@ if config_env() == :prod do
     ],
     secret_key_base: secret_key_base
 
+  if config_env() == :dev || config_env() == :prod do
+    config :serve_api, ServeApi.Mailer,
+      adapter: Swoosh.Adapters.Mailtrap,
+      api_key: System.get_env("MAILTRAP_API_KEY")
+  end
+
   # ## SSL Support
   #
   # To get SSL working, you will need to add the `https` key

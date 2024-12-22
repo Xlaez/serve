@@ -1,10 +1,10 @@
 defmodule ServeApiWeb.Mails.Mails do
   import Swoosh.Email
 
-  @spec welcome(any(), String) :: Swoosh.Email.t()
+  @spec welcome(%ServeApi.Account.Account{}, String.t()) :: Swoosh.Email.t()
   def welcome(user, otp) do
     new()
-    |> to({user.name, user.email})
+    |> to({user.first_name, user.email})
     |> from({"Serve<no reply>", "info@dolphjs.com"})
     |> subject("Welcome to Serve NG")
     |> html_body(welcome_html_body(user, otp))
@@ -19,7 +19,7 @@ defmodule ServeApiWeb.Mails.Mails do
         </div>
         <div style="padding: 20px; color: #555;">
           <p style="font-size: 18px; line-height: 1.5;">
-            Hi <strong>#{user.name}</strong>, <br><br>
+            Hi <strong>#{user.first_name}</strong>, <br><br>
             We're thrilled to have you join us! 🎉 To get started, please use the OTP below to verify your email address.
           </p>
           <div style="margin: 20px 0; font-size: 22px; font-weight: bold; color: #333;">

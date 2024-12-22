@@ -29,8 +29,6 @@ config :serve_api, ServeApiWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :serve_api, ServeApi.Mailer, adapter: Swoosh.Adapters.Local
-
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
@@ -39,9 +37,22 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :serve_api, ServeApi.Mailer,
-  adapter: Swoosh.Adapters.Mailtrap,
-  api_key: System.get_env("MAILTRAP_API_KEY")
+# if config_env() in [:dev, :test] do
+#   if File.exists?(".env") do
+#     Dotenv.load()
+#   else
+#     IO.puts("Could not load .env file")
+#   end
+# end
+
+config :serve_api, ServeApiWeb.Auth.Guardian,
+  issuer: "serve_api",
+  secret_key: "UkZ3UAXuMoTto9DNHbXs0YNouFL0SSRP2ObHncg6SA2UaVdvQ+wQBEyLlc8F+doE"
+
+config :guardian, Guardian.DB,
+  repo: ServeApi.Repo,
+  schema_name: "guardian_tokens",
+  sweep_interval: 60
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

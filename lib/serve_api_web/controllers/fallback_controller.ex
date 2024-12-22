@@ -19,4 +19,10 @@ defmodule ServeApiWeb.FallbackController do
     |> put_view(json: ServeApiWeb.ErrorJSON)
     |> render(:"404")
   end
+
+  def call(conn, unexpected_value) do
+    conn
+    |> put_status(:internal_server_error)
+    |> json(%{error: "Unhandled error", value: inspect(unexpected_value)})
+  end
 end

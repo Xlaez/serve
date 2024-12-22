@@ -1,5 +1,6 @@
 defmodule ServeApiWeb.Auth.Guardian do
   use Guardian, otp_app: :serve_api
+  require Logger
   alias ServeApi.Account
 
   def subject_for_token(%{id: id}, _claims) do

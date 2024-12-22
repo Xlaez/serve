@@ -31,6 +31,7 @@ defmodule ServeApiWeb.Router do
     get "/health_checker", DefaultController, :health_checker
 
     post "/auth/register", AccountController, :register
+    get "/auth/is_email_available/:email", AccountController, :email_available
   end
 
   scope "/api", ServeApiWeb do
